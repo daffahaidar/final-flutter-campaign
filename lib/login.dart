@@ -65,6 +65,89 @@ class Login extends StatelessWidget {
       );
     }
 
+    Widget passwordInput() {
+      return Container(
+        margin: EdgeInsets.only(top: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Password',
+                style: primaryTextStyle.copyWith(
+                  fontSize: 16,
+                  fontWeight: medium,
+                )),
+            SizedBox(height: 12),
+            Container(
+                height: 50,
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                decoration: BoxDecoration(
+                  color: primaryColor,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Center(
+                    child: Row(
+                  children: [
+                    Image.asset(
+                      'assets/icon_password.png',
+                      width: 17,
+                    ),
+                    SizedBox(width: 16),
+                    Expanded(
+                      child: TextFormField(
+                        style: secondaryTextStyle,
+                        obscureText: true,
+                        decoration: InputDecoration.collapsed(
+                          hintText: 'Your Password',
+                          hintStyle: secondaryTextStyle,
+                        ),
+                      ),
+                    )
+                  ],
+                ))),
+          ],
+        ),
+      );
+    }
+
+    Widget signInButton() {
+      return Container(
+        height: 50,
+        width: double.infinity,
+        margin: EdgeInsets.only(top: 30),
+        child: TextButton(
+          onPressed: () {},
+          style: TextButton.styleFrom(
+            backgroundColor: primaryColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
+          child: Text(
+            'Sign In',
+            style: secondaryTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: bold,
+            ),
+          ),
+        ),
+      );
+    }
+
+    Widget footer() {
+      return Container(
+        margin: EdgeInsets.only(bottom: 50),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Made by Daffa Haidar Nabil Zufar',
+                style: primaryTextStyle.copyWith(
+                  fontSize: 12,
+                )),
+          ],
+        ),
+      );
+    }
+
     return Scaffold(
         backgroundColor: backgroundColor1,
         body: SafeArea(
@@ -77,6 +160,10 @@ class Login extends StatelessWidget {
               children: [
                 header(),
                 emailInput(),
+                passwordInput(),
+                signInButton(),
+                Spacer(),
+                footer(),
               ],
             ),
           ),
